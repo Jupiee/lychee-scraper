@@ -15,7 +15,7 @@ async def mine(source):
 async def main():
 
 	print("Cleaning previous data...\n")
-	collection.delete_many({})
+	await collection.delete_many({})
 
 	sources= [Myrient(), EdgeEmulation(), NoPayStation()]
 
@@ -27,12 +27,12 @@ async def main():
 
 		await mine(source)
 
-	print(f"Completed in :{round(time.time() - start)/60}minutes\nGames indexed: {collection.count_documents({})}")
+	print(f"Completed in :{round(time.time() - start)/60}minutes\nGames indexed: {await collection.count_documents({})}")
 
 if __name__ == '__main__':
 
 	scheduler= AsyncIOScheduler()
-	scheduler.add_job(main, "cron", hour=3)
+	scheduler.add_job(main, "cron", hour=3, misfire_grace_time=600)
 	scheduler.start()
 
 	try:

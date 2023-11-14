@@ -3,3 +3,4 @@ motor
 python-dotenv
 selectolax
 httpx
+apscheduler
