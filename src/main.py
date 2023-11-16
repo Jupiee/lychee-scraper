@@ -8,28 +8,13 @@ from modules.database import collection
 import time
 import asyncio
 
-async def mine(source):
-
-	await source.mine()
-
 async def main():
 
 	sources= [Myrient(), EdgeEmulation(), NoPayStation()]
-	links_to_clean= []
-
-	for source in sources:
-
-		response= source.check_connection()
-
-		if response != None:
-
-			links_to_clean.append(response)
 
 	print("Cleaning previous data...\n\n")
-
-	for link in links_to_clean:
-
-		await collection.delete_many(link)
+	
+	await collection.delete_many({})
 
 	start= time.time()
 
@@ -37,7 +22,9 @@ async def main():
 
 	for source in sources:
 
-		await mine(source)
+		if source.check_connection():
+
+			await source.mine()
 
 	print(f"Completed in :{round(time.time() - start)/60}minutes\nRoms indexed: {await collection.count_documents({})}")
 

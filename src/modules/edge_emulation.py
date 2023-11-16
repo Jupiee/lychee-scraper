@@ -28,11 +28,15 @@ class EdgeEmulation:
 
     def check_connection(self):
 
-        response= httpx.Client().get(self.base_url)
+        try:
 
-        if response.status_code != 200:
+            response= httpx.Client().get(self.base_url)
 
-            return {"download_links": {"$regex": f"^{self.base_url}/"}}
+            return True
+
+        except httpx.ConnectTimeout:
+
+            return None
 
     async def scrape_table(self, platform, letter):
 

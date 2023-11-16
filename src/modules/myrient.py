@@ -37,11 +37,15 @@ class Myrient:
 
     def check_connection(self):
 
-        response= httpx.Client().get("https://myrient.erista.me/files/")
+        try: 
 
-        if response.status_code != 200:
+            response= httpx.Client().get("https://myrient.erista.me/files/")
 
-            return {"download_links": {"$regex": "^https://myrient.erista.me/files/"}}
+            return True
+
+        except httpx.ConnectTimeout:
+                
+            return None
 
     async def scrape_table(self, platform, url):
 
