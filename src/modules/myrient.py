@@ -35,6 +35,14 @@ class Myrient:
 
         self.client_session= httpx.AsyncClient(timeout= self.timeout)
 
+    def check_connection(self):
+
+        response= httpx.Client().get("https://myrient.erista.me/files/")
+
+        if response.status_code != 200:
+
+            return {"download_links": {"$regex": "^https://myrient.erista.me/files/"}}
+
     async def scrape_table(self, platform, url):
 
         response= await self.client_session.get(url)
@@ -55,7 +63,7 @@ class Myrient:
 
     async def mine(self):
 
-        print("\n\nScraping Myrient...\n\n")
+        print("Scraping Myrient...\n\n")
 
         tasks= []
 

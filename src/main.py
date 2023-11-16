@@ -14,20 +14,32 @@ async def mine(source):
 
 async def main():
 
-	print("Cleaning previous data...\n")
-	await collection.delete_many({})
-
 	sources= [Myrient(), EdgeEmulation(), NoPayStation()]
+	links_to_clean= []
+
+	for source in sources:
+
+		response= source.check_connection()
+
+		if response != None:
+
+			links_to_clean.append(response)
+
+	print("Cleaning previous data...\n\n")
+
+	for link in links_to_clean:
+
+		await collection.delete_many(link)
 
 	start= time.time()
 
-	print("Started Scraping...\n")
+	print("Started Scraping...\n\n")
 
 	for source in sources:
 
 		await mine(source)
 
-	print(f"Completed in :{round(time.time() - start)/60}minutes\nGames indexed: {await collection.count_documents({})}")
+	print(f"Completed in :{round(time.time() - start)/60}minutes\nRoms indexed: {await collection.count_documents({})}")
 
 if __name__ == '__main__':
 

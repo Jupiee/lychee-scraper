@@ -26,6 +26,14 @@ class EdgeEmulation:
         self.timeout= httpx.Timeout(connect= None, read= None, write= None, pool= None)
         self.client_session= httpx.AsyncClient(timeout= self.timeout)
 
+    def check_connection(self):
+
+        response= httpx.Client().get(self.base_url)
+
+        if response.status_code != 200:
+
+            return {"download_links": {"$regex": f"^{self.base_url}/"}}
+
     async def scrape_table(self, platform, letter):
 
         if letter == "#":
@@ -58,7 +66,7 @@ class EdgeEmulation:
 
     async def mine(self):
 
-        print("\n\nScraping EdgeEmu...")
+        print("Scraping EdgeEmu...\n\n")
 
         tasks= []
 

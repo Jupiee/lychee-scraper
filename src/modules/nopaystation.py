@@ -25,6 +25,14 @@ class NoPayStation:
 
         self.client_session= httpx.AsyncClient(timeout= self.timeout)
 
+    def check_connection(self):
+
+        response= httpx.Client().get(self.base_url)
+
+        if response.status_code != 200:
+
+            return {"download_links": {"$regex": "^http://zeus.dl.playstation.net/"}}
+
     async def scrape_table(self, platform, url):
 
         count= 1
@@ -69,7 +77,7 @@ class NoPayStation:
 
     async def mine(self):
 
-        print("\n\nScraping NoPayStation...\n\n")
+        print("Scraping NoPayStation...\n\n")
 
         tasks= []
 
