@@ -14,7 +14,9 @@ class Myrient:
 
             "PS1": "https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation/",
             "PS2": "https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%202/",
+            "PS3": "https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%203/",
             "PSP": "https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%20Portable/",
+            "PSV": "https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%20Vita%20%28PSN%29%20%28Content%29/",
             "Xbox": "https://myrient.erista.me/files/Redump/Microsoft%20-%20Xbox/",
             "Xbox360": "https://myrient.erista.me/files/Redump/Microsoft%20-%20Xbox%20360/",
             "Nintendo DS": "https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Decrypted)/",

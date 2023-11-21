@@ -10,7 +10,7 @@ import asyncio
 
 async def main():
 
-	sources= [Myrient(), EdgeEmulation(), NoPayStation()]
+	sources= [Myrient(), EdgeEmulation()]
 
 	print("Cleaning previous data...\n\n")
 	
@@ -26,7 +26,7 @@ async def main():
 
 			await source.mine()
 
-	print(f"Completed in :{round(time.time() - start)/60}minutes\nRoms indexed: {await collection.count_documents({})}")
+	print(f"Completed in: {round((time.time() - start)/60)} minutes\nRoms indexed: {await collection.count_documents({})}")
 
 if __name__ == '__main__':
 

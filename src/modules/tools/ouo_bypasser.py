@@ -44,6 +44,8 @@ class Extractor:
 
 	def bypass(self, url):
 
+		url= url.replace("ouo.press", "ouo.io")
+
 		parsed_url= urlparse(url)
 		identifier= url.split("/")[-1]
 
@@ -73,7 +75,3 @@ class Extractor:
 			directed_url= f"{parsed_url.scheme}://{parsed_url.hostname}/xreallcygo/{identifier}"
 
 		return response.headers.get("Location")
-	
-extractor= Extractor()
-
-print(extractor.bypass("https://ouo.io/fFlW96"))
