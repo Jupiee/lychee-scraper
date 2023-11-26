@@ -2,7 +2,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 from modules.myrient import Myrient
 from modules.edge_emulation import EdgeEmulation
-from modules.nopaystation import NoPayStation
+from modules.archive import Archive
 from modules.database import collection
 
 import time
@@ -10,7 +10,7 @@ import asyncio
 
 async def main():
 
-	sources= [Myrient(), EdgeEmulation()]
+	sources= [Myrient(), EdgeEmulation(), Archive()]
 
 	print("Cleaning previous data...\n\n")
 	

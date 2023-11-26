@@ -5,33 +5,15 @@ from modules.game_item import Item
 from modules.database import collection
 
 import asyncio
+import json
 
 class Myrient:
 
     def __init__(self):
 
-        self.base_url= {
+        source_file= open("F:/Code treasure/Lychee engine/backend/lychee-scraper/src/sources.json")
 
-            "PS1": "https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation/",
-            "PS2": "https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%202/",
-            "PS3": "https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%203/",
-            "PSP": "https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%20Portable/",
-            "PSV": "https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%20Vita%20%28PSN%29%20%28Content%29/",
-            "Xbox": "https://myrient.erista.me/files/Redump/Microsoft%20-%20Xbox/",
-            "Xbox360": "https://myrient.erista.me/files/Redump/Microsoft%20-%20Xbox%20360/",
-            "Nintendo DS": "https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Decrypted)/",
-            "Nintendo 3DS": "https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Decrypted)/",
-            "Nintendo GameCube": "https://myrient.erista.me/files/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/",
-            "Nintendo Wii": "https://myrient.erista.me/files/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/",
-            "Nintendo Wii U": "https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/",
-            "Nintendo 64": "https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%2064%20(BigEndian)/",
-            "NES": "https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20(Headered)/",
-            "SNES": "https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/",
-            "Gameboy": "https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy/",
-            "Gameboy Advance": "https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Advance/",
-            "Gameboy Color": "https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Color/",
-
-        }
+        self.base_url= json.load(source_file)["Myrient"]
 
         self.timeout= httpx.Timeout(connect= None, read= None, write= None, pool= None)
 
