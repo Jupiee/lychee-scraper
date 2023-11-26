@@ -15,6 +15,8 @@ class Myrient:
 
         self.base_url= json.load(source_file)["Myrient"]
 
+        source_file.close()
+
         self.timeout= httpx.Timeout(connect= None, read= None, write= None, pool= None)
 
         self.client_session= httpx.AsyncClient(timeout= self.timeout)
