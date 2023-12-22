@@ -30,6 +30,10 @@ async def main():
 
 if __name__ == '__main__':
 
+	# This is for testing purposes
+	# asyncio.run(main())
+
+	# This is for cron job scheduling
 	scheduler= AsyncIOScheduler()
 	scheduler.add_job(main, "cron", hour=3, misfire_grace_time=600)
 	scheduler.start()

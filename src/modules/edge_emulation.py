@@ -14,14 +14,14 @@ class EdgeEmulation:
         self.letters= "#ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         self.platforms= ["gba", "gc", "gbc", "nds", "vb", "n64", "nes", "snes"]
 
-        self.formatted_platforms= {"gba": "Game Boy Advance",
+        self.formatted_platforms= {"gba": "GameBoy Advance",
                                    "gc": "Nintendo GameCube",
-                                   "gbc": "Game Boy Color",
+                                   "gbc": "GameBoy Color",
                                    "nds": "Nintendo DS",
                                    "vb": "Virtual Boy",
                                    "n64": "Nintendo 64",
-                                   "nes": "Nintendo Entertainment System",
-                                   "snes": "Super Nintendo"}
+                                   "nes": "NES",
+                                   "snes": "SNES"}
 
         self.timeout= httpx.Timeout(connect= None, read= None, write= None, pool= None)
         self.client_session= httpx.AsyncClient(timeout= self.timeout)
