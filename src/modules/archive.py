@@ -53,7 +53,7 @@ class Archive:
 
                 size= row.css("td")[2].text()
 
-                item= Item(name, size, "-", platform, download_link)
+                item= Item(name, size, platform, download_link)
 
                 await collection.insert_one(item.__dict__)
     

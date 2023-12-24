@@ -47,7 +47,7 @@ class Myrient:
 
             anchor_tag= data[0].css_first("a")
 
-            game= Item(anchor_tag.text().strip(".zip"), data[1].text(), data[2].text(), platform, self.base_url[platform] + anchor_tag.attrs["href"])
+            game= Item(anchor_tag.text().strip(".zip"), data[1].text(), platform, self.base_url[platform] + anchor_tag.attrs["href"])
 
             await collection.insert_one(game.__dict__)
 

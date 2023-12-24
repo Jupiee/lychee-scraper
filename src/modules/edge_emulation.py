@@ -14,9 +14,9 @@ class EdgeEmulation:
         self.letters= "#ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         self.platforms= ["gba", "gc", "gbc", "nds", "vb", "n64", "nes", "snes"]
 
-        self.formatted_platforms= {"gba": "GameBoy Advance",
+        self.formatted_platforms= {"gba": "Gameboy Advance",
                                    "gc": "Nintendo GameCube",
-                                   "gbc": "GameBoy Color",
+                                   "gbc": "Gameboy Color",
                                    "nds": "Nintendo DS",
                                    "vb": "Virtual Boy",
                                    "n64": "Nintendo 64",
@@ -64,7 +64,7 @@ class EdgeEmulation:
 
                 anchor_tag= data[0].css_first("a")
 
-                game= Item(anchor_tag.text(), data[1].text(), "-", self.formatted_platforms[platform], f"{self.base_url}/{anchor_tag.attrs['href']}")
+                game= Item(anchor_tag.text(), data[1].text(), self.formatted_platforms[platform], f"{self.base_url}/{anchor_tag.attrs['href']}")
 
                 await collection.insert_one(game.__dict__)
 
