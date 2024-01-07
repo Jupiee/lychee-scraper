@@ -1,2 +1,4 @@
 src/modules/__pycache__
 src/modules/nxbrew.py
+src/modules/nopaystation.py
+src/modules/.env

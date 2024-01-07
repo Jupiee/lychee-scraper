@@ -4,8 +4,9 @@ from selectolax.lexbor import LexborHTMLParser
 import requests as req
 import re
 
+# This is planned to be used in future for bypassing ouo.io captchas
 class Extractor:
-    
+
 	def __init__(self):
 
 		self.session= requests.Session()
