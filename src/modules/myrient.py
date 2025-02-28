@@ -5,13 +5,14 @@ from modules.game_item import Item
 from modules.database import collection
 
 import asyncio
+import os.path
 import json
 
 class Myrient:
 
     def __init__(self):
 
-        source_file= open("F:/Code treasure/Lychee engine/backend/lychee-scraper/src/sources.json")
+        source_file= open(os.path.dirname(__file__) + "/../sources.json")
 
         self.base_url= json.load(source_file)["Myrient"]
 
