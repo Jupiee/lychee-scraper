@@ -44,7 +44,14 @@ class Archive:
 
         for row in table:
 
-            name= row.css_first("td").css_first("a").text()
+            entry= row.css_first("td")
+
+            if not entry.css_first("a"):
+
+                break
+            else:
+
+                name= entry.css_first("a").text()
 
             if name.endswith(".iso") or name.endswith(".zip"):
 
