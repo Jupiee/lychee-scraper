@@ -12,24 +12,4 @@
 <h3>Testing locally</h3>
 
 1. Follow the same steps from 1 to 2 or skip if you have already done those.
-2. In the main file, comment out the cron job code block and uncomment the testing code block
-
-```python
-# This is for testing purposes
-asyncio.run(main())
-
-# This is for cron job scheduling
-'''scheduler= AsyncIOScheduler()
-scheduler.add_job(main, "cron", hour=3, misfire_grace_time=600)
-scheduler.start()
-
-try:
-
-    asyncio.get_event_loop().run_forever()
-
-except (KeyboardInterrupt, SystemExit):
-
-    print("\n\nForced Exit\n")'''
-```
-
-3. Run the main file
+2. Run the test file `python test.py`
