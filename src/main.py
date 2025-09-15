@@ -1,7 +1,6 @@
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 from modules.myrient import Myrient
-from modules.edge_emulation import EdgeEmulation
 from modules.archive import Archive
 from modules.database import collection
 
@@ -10,7 +9,7 @@ import asyncio
 
 async def main():
 
-	sources= [Myrient(), EdgeEmulation(), Archive()]
+	sources= [Myrient(), Archive()]
 
 	print("Cleaning previous data...\n\n")
 	
